@@ -7,6 +7,7 @@ public class test : MonoBehaviour
     [SerializeField] private float _bikeFallRotation_R;
     
     private VehicleController _vehicleController;
+    private Rigidbody _rigidbody;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,16 +20,22 @@ public class test : MonoBehaviour
     void Update()
     {
         
+        // TODO: Move into PlayerFailingScript or something
+        // Slowly lerp the bike to the ground if no input was given for a few seconds
+        // Meaning slowly lerping the values below.
+        // if player moves in the meantime lerp back to the original values
+        
+        
         if (Input.GetKey(KeyCode.E))
         {
-            // // _vehicleController.  
-            //     
-            //     Quaternion spinRotation = Quaternion.AngleAxis(
-            //         // _angle,
-            //         Vector3.right
-            //     );
-            //
-            // gameObject.transform.localRotation = steeringRotation * spinRotation;
+                Quaternion spinRotation = Quaternion.AngleAxis(
+                    _bikeFallRotation_L,
+                    Vector3.forward
+                );
+                _vehicleController.maxSteeringAngle = 120;
+                _vehicleController.springStiffness = 5000;
+                _vehicleController.damperStiffness = 5000;
+            gameObject.transform.localRotation = gameObject.transform.localRotation * spinRotation;
         }
     }
 }

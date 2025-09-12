@@ -20,15 +20,16 @@ public class VehicleController : MonoBehaviour
     [SerializeField] private bool bikeMode = true;
     
     [Header("Suspension")]
-    [SerializeField] private float springStiffness = 30000f;
-    [SerializeField] private float damperStiffness = 3000f;
+    [SerializeField]
+    public float springStiffness = 30000f;
+    [SerializeField] public float damperStiffness = 3000f;
     [SerializeField] private float restLength = 0.1f;
     [SerializeField] private float springTravel = 0.4f;
     [SerializeField] private float wheelRadius = 0.5f;
 
     [Header("Stearing")]
     [SerializeField] private float steerStrength = 15f;
-    [SerializeField] private float maxSteeringAngle = 30f;
+    [SerializeField] public float maxSteeringAngle = 30f;
     [SerializeField] private AnimationCurve turningCurve;
 
     [Header("Tire Friction")]
