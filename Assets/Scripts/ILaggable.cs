@@ -1,7 +1,4 @@
-using UnityEngine;
-
 public interface ILaggable
 {
-    void OnLagStart();
-    void OnLagEnd();
+    void OnLag(LagPayload payload);
 }

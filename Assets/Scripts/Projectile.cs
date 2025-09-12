@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -7,37 +8,55 @@ public class Projectile : MonoBehaviour, ILaggable
 
     private Rigidbody rb;
     private Vector3 savedVelocity;
-    private bool isLagging = false;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void OnEnable()
+    private void Start()
     {
-        StartCoroutine(DeactivateRoutine());
+        LagManager._event.AddListener(OnLag); 
     }
 
-    IEnumerator DeactivateRoutine()
+    // void OnEnable()
+    // {
+    //     StartCoroutine(DeactivateRoutine());
+    // }
+
+    // void OnDisable()
+    // {
+    //     rb.isKinematic = false;
+    // }
+
+    // IEnumerator DeactivateRoutine()
+    // {
+    //     yield return new WaitForSeconds(lifetime);
+    //     gameObject.SetActive(false);
+    // }
+
+    public void OnLag(LagPayload payload)
     {
-        yield return new WaitForSeconds(lifetime);
-        gameObject.SetActive(false);
+        if (payload.type == LagType.Freeze)
+        {
+            StartCoroutine(FreezeRoutine(payload.duration));
+        }
     }
 
-    public void OnLagStart()
+    private IEnumerator FreezeRoutine(float duration)
     {
-        if (isLagging) return;
-        isLagging = true;
         savedVelocity = rb.linearVelocity;
-        rb.isKinematic = true; // Also set to kinematic to stop physics interactions
-    }
+        Debug.Log("Projectile " + gameObject.GetInstanceID() + " FREEZE START. Velocity saved: " + savedVelocity);
+        rb.linearVelocity = Vector3.zero;
 
-    public void OnLagEnd()
-    {
-        if (!isLagging) return;
-        isLagging = false;
-        rb.isKinematic = false;
+        float timer = 0f;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
         rb.linearVelocity = savedVelocity;
+        Debug.Log("Projectile " + gameObject.GetInstanceID() + " FREEZE END. Velocity restored: " + savedVelocity);
     }
 }

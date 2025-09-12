@@ -462,6 +462,7 @@ MonoBehaviour:
   fireRate: 1
   projectileSpeed: 10
   projectileTag: Projectile
+  jitterAmount: 0.1
 --- !u!65 &1059431082
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -738,7 +739,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lagIntervalMin: 5
-  lagIntervalMax: 10
+  lagIntervalMax: 5
+  lagFreezeTimeMin: 1
+  lagFreezeTimeMax: 1
+  usedLagTypes: 00000000
+  playerIsLaggable: 0
+  player: {fileID: 1861421058}
+  positionRecordTime: 0.1
+  positionHistoryCount: 50
 --- !u!4 &1647134948
 Transform:
   m_ObjectHideFlags: 0

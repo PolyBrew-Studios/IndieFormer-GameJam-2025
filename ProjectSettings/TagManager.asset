@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Laggable
+  - Projectile
   layers:
   - Default
   - TransparentFX
