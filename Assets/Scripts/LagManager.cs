@@ -26,10 +26,13 @@ public class LagManager : MonoBehaviour
     private LagType[] lagTypes;
 
     public static UnityEvent<LagPayload> _event = new UnityEvent<LagPayload>();
+
+    private WaitForSeconds recordWait;
     
     void Start()
     {
         lagTypes = (LagType[])Enum.GetValues(typeof(LagType));
+        recordWait = new WaitForSeconds(positionRecordTime);
         StartCoroutine(LagSpikeRoutine());
         if (playerIsLaggable)
         {
@@ -51,7 +54,7 @@ public class LagManager : MonoBehaviour
                 recentPositions.RemoveAt(0);
                 recentPositions.Add(player.transform.position);
             }
-            yield return new WaitForSeconds(positionRecordTime);
+            yield return recordWait;
         }
     }
 
@@ -60,7 +63,7 @@ public class LagManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(UnityEngine.Random.Range(lagIntervalMin, lagIntervalMax));
-            StartCoroutine(LagSpike());
+            yield return LagSpike();
         }
     }
 
@@ -80,28 +83,24 @@ public class LagManager : MonoBehaviour
         {
             // Environmental lag
             LagPayload payload = new LagPayload();
-            if(usedLagTypes.Count == 0)
+            if (usedLagTypes == null || usedLagTypes.Count == 0)
+            {
                 payload.type = lagTypes[UnityEngine.Random.Range(0, lagTypes.Length)];
+            }
             else
             {
-                var max = usedLagTypes.Count - 1;
-                var x = UnityEngine.Random.Range(0, max);
+                var x = UnityEngine.Random.Range(0, usedLagTypes.Count); // upper bound exclusive
                 payload.type = usedLagTypes[x];
             }
                 
-            
             payload.duration = UnityEngine.Random.Range(lagFreezeTimeMin, lagFreezeTimeMax);
-            Debug.Log("[LagManager] Environmental Lag Spike! Type: " + payload.type + ", Duration: " + payload.duration.ToString("F2"));
-
-            
-
-            GameObject[] laggableObjects = GameObject.FindGameObjectsWithTag("Laggable");
-
-            foreach (GameObject obj in laggableObjects)
+            if (Debug.isDebugBuild)
             {
-                _event.Invoke(payload);
-                // obj.SendMessage("OnLag", payload, SendMessageOptions.DontRequireReceiver);
+                Debug.Log($"[LagManager] Environmental Lag Spike! Type: {payload.type}, Duration: {payload.duration:F2}");
             }
+
+            // Invoke once: listeners will handle themselves; avoid repeated global invocations and Find costs
+            _event.Invoke(payload);
         }
     }
 }

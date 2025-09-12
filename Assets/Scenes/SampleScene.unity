@@ -463,6 +463,14 @@ MonoBehaviour:
   projectileSpeed: 10
   projectileTag: Projectile
   jitterAmount: 0.1
+  moveSpeed: 3
+  followRadius: 5
+  curveAmount: 2.76
+  enableIdleOrbit: 1
+  stillnessSpeedThreshold: 0.05
+  idleOrbitAngleRange: {x: 20, y: 60}
+  idleMoveSpeedMultiplier: 1
+  idleCurveAmountMultiplier: 0.6
 --- !u!65 &1059431082
 BoxCollider:
   m_ObjectHideFlags: 0

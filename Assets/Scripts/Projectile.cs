@@ -8,15 +8,22 @@ public class Projectile : MonoBehaviour, ILaggable
 
     private Rigidbody rb;
     private Vector3 savedVelocity;
+    private Coroutine freezeRoutine;
+    private float freezeEndTime;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        LagManager._event.AddListener(OnLag); 
+        LagManager._event.AddListener(OnLag);
+    }
+
+    private void OnDisable()
+    {
+        LagManager._event.RemoveListener(OnLag);
     }
 
     // void OnEnable()
@@ -39,24 +46,32 @@ public class Projectile : MonoBehaviour, ILaggable
     {
         if (payload.type == LagType.Freeze)
         {
-            StartCoroutine(FreezeRoutine(payload.duration));
+            // Extend existing freeze or start a new one without stacking multiple coroutines
+            if (freezeRoutine == null)
+            {
+                savedVelocity = rb != null ? rb.linearVelocity : Vector3.zero;
+                if (rb != null) rb.linearVelocity = Vector3.zero;
+                freezeEndTime = Time.time + payload.duration;
+                freezeRoutine = StartCoroutine(FreezeRoutine());
+            }
+            else
+            {
+                freezeEndTime += payload.duration;
+            }
         }
     }
 
-    private IEnumerator FreezeRoutine(float duration)
+    private IEnumerator FreezeRoutine()
     {
-        savedVelocity = rb.linearVelocity;
-        Debug.Log("Projectile " + gameObject.GetInstanceID() + " FREEZE START. Velocity saved: " + savedVelocity);
-        rb.linearVelocity = Vector3.zero;
-
-        float timer = 0f;
-        while (timer < duration)
+        while (Time.time < freezeEndTime)
         {
-            timer += Time.deltaTime;
             yield return null;
         }
 
-        rb.linearVelocity = savedVelocity;
-        Debug.Log("Projectile " + gameObject.GetInstanceID() + " FREEZE END. Velocity restored: " + savedVelocity);
+        if (rb != null)
+        {
+            rb.linearVelocity = savedVelocity;
+        }
+        freezeRoutine = null;
     }
 }
