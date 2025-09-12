@@ -16,6 +16,9 @@ public class VehicleController : MonoBehaviour
     [Header("Layer Mask")]
     [SerializeField] private LayerMask drivableMask;
 
+    [Header("Bike Mode")]
+    [SerializeField] private bool bikeMode = true;
+    
     [Header("Suspension")]
     [SerializeField] private float springStiffness = 30000f;
     [SerializeField] private float damperStiffness = 3000f;
@@ -278,7 +281,10 @@ public class VehicleController : MonoBehaviour
 
             Transform tire = _tireVisuals[i];
 
-            if (i < 2) // Only apply for the front 2 tires
+            int turningWheels = 2;
+            if(bikeMode)
+                turningWheels = 1;
+            if (i < turningWheels) // Only apply for the front 2 tires
             {
                 // Setup Forces
                 Vector3 steering_forward = Quaternion.Euler(0f, _currentSteeringAngle, 0f) * tireAnchors[i].forward;
