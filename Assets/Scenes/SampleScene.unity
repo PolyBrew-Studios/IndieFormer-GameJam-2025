@@ -426,6 +426,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 895f6a32e8525b14cb2e14eba74ec0d8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 527664823}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 895f6a32e8525b14cb2e14eba74ec0d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 527664826}
   m_SourcePrefab: {fileID: 100100000, guid: 895f6a32e8525b14cb2e14eba74ec0d8, type: 3}
 --- !u!4 &527664821 stripped
 Transform:
@@ -679,6 +682,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.556262, y: 1.1304901, z: 2.1514344}
   m_Center: {x: 0.010423183, y: 0.7447549, z: 0.069067955}
+--- !u!114 &527664826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527664822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c47cb296de2c6b4f8784a2dc609cd22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bikePivot: {fileID: 0}
+  _bikeFallRotation_L: 1
+  _bikeFallRotation_R: 0
 --- !u!1001 &568078630
 PrefabInstance:
   m_ObjectHideFlags: 0
