@@ -63,12 +63,12 @@ public class PlayerInput : MonoBehaviour
 
     void ApplyInputToVehicle()
     {
-        //controlledVehicle.SetForwardInput(_forwardInput);
-        //controlledVehicle.SetReverseInput(_reverseInput);
-        //controlledVehicle.SetTurnInput(_turnInput);
-        //controlledVehicle.SetIsBraking(_isBraking);
-        //
-        //Debug.Log(_turnInput);
+        controlledVehicle.SetForwardInput(_forwardInput);
+        controlledVehicle.SetReverseInput(_reverseInput);
+        controlledVehicle.SetTurnInput(_turnInput);
+        controlledVehicle.SetIsBraking(_isBraking);
+
+        Debug.Log(_turnInput);
     }
 
     public void SetControlledVehicle(VehicleController vehicle)
