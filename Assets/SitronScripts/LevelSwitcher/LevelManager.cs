@@ -1,57 +1,67 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] ColliderNotifier _start;
+    [SerializeField] Transform _start;
     [SerializeField] ColliderNotifier _end;
-    [SerializeField] GameObject _canvasObj;
-    [SerializeField] List<Level> _allLevels;
+    [SerializeField] TMP_Text _resultText;
+    [SerializeField] TMP_Text _counter;
+    [SerializeField] float _threeStarTreshold;
+    [SerializeField] float _twoStarTreshold;
+    [SerializeField] float _oneStarTreshold;
 
-    Level _currentLevel;
-
-    public static LevelManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-    }
-
+    float _timeFromStart = 0;
+    bool _isRunning = true;
     private void Start()
     {
-        _start.ColliderHit += () => 
-        {
-            _canvasObj.SetActive(false);
-        };
+        var character = GameObject.FindFirstObjectByType<ActiveCarPrefabSelector>();
+        character.transform.position = _start.position;
 
-        _end.ColliderHit += () =>
+        _end.ColliderHit += async () =>
         {
-            _canvasObj.SetActive(true);
+            _resultText.enabled=true;
+            await NextLevel();
         };
-        LaunchLevel(_allLevels.First());
     }
-    void LaunchLevel(Level level)
+    private void Update()
     {
-        _currentLevel = level;
+        if (!_isRunning)
+            return;
+
+        _timeFromStart += Time.deltaTime;
+        _counter.text = _timeFromStart.ToString("F0");
+
+        if (_timeFromStart > _oneStarTreshold)
+            _counter.color = Color.red;
+        else if (_timeFromStart > _twoStarTreshold)
+            _counter.color = Color.orange;
+        else if (_timeFromStart > _threeStarTreshold)
+            _counter.color = Color.green;
     }
-    public void NextLevel()
+
+    public async Awaitable NextLevel()
     {
-        if(_allLevels.ElementAtOrDefault(_allLevels.IndexOf(_currentLevel)+1) is Level nextLevel)
+        _isRunning = false;
+
+        if (_timeFromStart < _twoStarTreshold)
+            _resultText.text = "You have done it again!";
+        else if(_timeFromStart < _threeStarTreshold)
+            _resultText.text = "Not great not terrible!";
+        else if (_timeFromStart > _threeStarTreshold)
+            _resultText.text = "Honestly, this is attrocious time, try again!!!";
+
+        try
         {
-            LaunchLevel(nextLevel);
+            await Awaitable.WaitForSecondsAsync(3);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        else
+        catch
         {
             //TODO game finished
         }

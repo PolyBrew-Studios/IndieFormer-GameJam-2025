@@ -20,7 +20,7 @@ public class OurInput : MonoBehaviour
         float minManhattanDistance = 10;
 
 
-        int firstKey = Random.Range(0, UnityKeyboardLayout.KeysByPosition.Count-1);
+        int firstKey =  Random.Range(0, UnityKeyboardLayout.KeysByPosition.Count-1);
 
         var left = UnityKeyboardLayout.KeysByPosition.ElementAt(firstKey);
         LeftSteering = left.Value;
@@ -35,6 +35,9 @@ public class OurInput : MonoBehaviour
         List<KeyCode> adepts = new List<KeyCode>();
         foreach(var key in UnityKeyboardLayout.KeysByPosition)
         {
+            if (key.Value == LeftSteering)
+                continue;
+
             float distance = GetManhattanDistance(leftSteeringPos, key.Key);
 
             if (distance > minManhattanDistance)
