@@ -14,7 +14,7 @@ public class OurInput : MonoBehaviour
     [SerializeField] TMP_Text _accelerationText;
     [SerializeField] VehicleController controlledVehicle;
 
-
+    float _steerInput = 0;
     void Start()
     {
         float minManhattanDistance = 10;
@@ -56,7 +56,7 @@ public class OurInput : MonoBehaviour
     float _yMax = 20;
     float _yMin = -20;
     float _currentY = 0;
-
+    float _steerAmount = 0.01f;
     private void Update()
     {
         float yDelta = Input.mousePositionDelta.y;
@@ -73,14 +73,29 @@ public class OurInput : MonoBehaviour
 
         }
 
-        float steerInput = 0;
+        float currentSteer = 0;
         if (Input.GetKey(LeftSteering))
-            steerInput -= 1;
+            currentSteer -= 1;
         if (Input.GetKey(RightSteering))
-            steerInput += 1;
+            currentSteer += 1;
+
+        if(Mathf.Abs(currentSteer)>0)
+        {
+            _steerInput = Mathf.Clamp(_steerInput+(currentSteer * _steerAmount),-1,1);
+        }
+        else
+        {
+            float v = Mathf.Min(Mathf.Abs(_steerInput), _steerAmount);
+
+            if (_steerInput > 0)
+                _steerInput -= v;
+            else
+                _steerInput += v;
+                    
+        }
 
         controlledVehicle.SetForwardInput(accel);
-        controlledVehicle.SetTurnInput(steerInput);
+        controlledVehicle.SetTurnInput(_steerInput);
 
         if (Input.GetKeyDown(KeyCode.Q)) //tmp
             if(Input.GetKeyUp(KeyCode.Q))
@@ -91,7 +106,7 @@ public class OurInput : MonoBehaviour
         
         _accelerationText.text = (accel).ToString();
 
-        // Debug.Log(_currentY);
+         Debug.Log(_steerInput);
     }
 
     private static float GetManhattanDistance(Vector2 k1, Vector2 k2)
