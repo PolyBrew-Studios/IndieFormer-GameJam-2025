@@ -51,11 +51,13 @@ public class LevelManager : MonoBehaviour
 
         if (_timeFromStart < _twoStarTreshold)
             _resultText.text = "You have done it again!";
-        else if(_timeFromStart < _threeStarTreshold)
+        else if (_timeFromStart < _threeStarTreshold)
             _resultText.text = "Not great not terrible!";
         else if (_timeFromStart > _threeStarTreshold)
+        {
             _resultText.text = "Honestly, this is attrocious time, try again!!!";
-
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         try
         {
             await Awaitable.WaitForSecondsAsync(3);
