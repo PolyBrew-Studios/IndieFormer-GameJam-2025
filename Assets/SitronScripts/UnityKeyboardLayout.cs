@@ -68,33 +68,16 @@ public static class UnityKeyboardLayout
         AddKey(KeyCode.N, 7.25f, 4f);
         AddKey(KeyCode.M, 8.25f, 4f);
 
-        AddKey(KeyCode.Space, 7.25f, 5f); // Mezerník jako hlavní klávesa
+        AddKey(KeyCode.Space, 7.25f, 5f); // Mezernï¿½k jako hlavnï¿½ klï¿½vesa
 
-        AddKey(KeyCode.Insert, 15f, 1.5f);
-        AddKey(KeyCode.Home, 16f, 1.5f);
+
 
         AddKey(KeyCode.UpArrow, 16f, 4.5f);
         AddKey(KeyCode.LeftArrow, 15f, 5.5f);
         AddKey(KeyCode.DownArrow, 16f, 5.5f);
         AddKey(KeyCode.RightArrow, 17f, 5.5f);
 
-        AddKey(KeyCode.Numlock, 18.5f, 1.5f);
-        AddKey(KeyCode.KeypadDivide, 19.5f, 1.5f);
-        AddKey(KeyCode.KeypadMultiply, 20.5f, 1.5f);
-        AddKey(KeyCode.KeypadMinus, 21.5f, 1.5f);
-        AddKey(KeyCode.Keypad7, 18.5f, 2.5f);
-        AddKey(KeyCode.Keypad8, 19.5f, 2.5f);
-        AddKey(KeyCode.Keypad9, 20.5f, 2.5f);
-        AddKey(KeyCode.KeypadPlus, 21.5f, 3f);
-        AddKey(KeyCode.Keypad4, 18.5f, 3.5f);
-        AddKey(KeyCode.Keypad5, 19.5f, 3.5f);
-        AddKey(KeyCode.Keypad6, 20.5f, 3.5f);
-        AddKey(KeyCode.Keypad1, 18.5f, 4.5f);
-        AddKey(KeyCode.Keypad2, 19.5f, 4.5f);
-        AddKey(KeyCode.Keypad3, 20.5f, 4.5f);
-        AddKey(KeyCode.KeypadEnter, 21.5f, 5f);
-        AddKey(KeyCode.Keypad0, 19f, 5.5f);
-        AddKey(KeyCode.KeypadPeriod, 20.5f, 5.5f);
+
 
         KeysByPosition = keysByPosition;
         PositionByKey = positionByKey;

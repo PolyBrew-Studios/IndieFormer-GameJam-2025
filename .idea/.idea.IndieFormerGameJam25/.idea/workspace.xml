@@ -6,10 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="e8515a5e-909f-4c21-9ada-60493db5bbcf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IndieFormerGameJam25/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IndieFormerGameJam25/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Bench.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Bench.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Bike/Bike.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Bike/Bike.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Models/Carju_0.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Carju_0.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Police.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Police.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Trash.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Trash.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/BuildingBlocks/Road_Sidewalk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/BuildingBlocks/Road_Sidewalk.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/VehicleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VehicleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerForceFieldAdjuster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/test.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerForceFieldAdjuster.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SitronScripts/OurInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SitronScripts/OurInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SitronScripts/UnityKeyboardLayout.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SitronScripts/UnityKeyboardLayout.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,13 +100,15 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31748">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="31748" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -119,6 +130,7 @@
       <workItem from="1757689280600" duration="11464000" />
       <workItem from="1757709221762" duration="4045000" />
       <workItem from="1757716711322" duration="1200000" />
+      <workItem from="1757764671283" duration="5948000" />
     </task>
     <servers />
   </component>
