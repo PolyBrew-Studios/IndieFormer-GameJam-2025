@@ -3,14 +3,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool hasFallenOver = false; // game over
-    public Transform latestCheckpointPosition; 
-    public Transform latestCheckpointRotation;
+    public Vector3 latestCheckpointPosition; 
+    public Quaternion latestCheckpointRotation;
     public VehicleController playerVehicle;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // latestCheckpointPosition = play
+        latestCheckpointPosition = playerVehicle.transform.position;
+        latestCheckpointRotation = playerVehicle.transform.rotation;
     }
 
     // Update is called once per frame
