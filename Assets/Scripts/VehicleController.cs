@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class VehicleController : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform[] tireAnchors = new Transform[2];
+    [SerializeField] public Transform[] tireAnchors = new Transform[2];
     
     [SerializeField] private TrailRenderer skidMarksVFX;
     [SerializeField] private ParticleSystem tireSmokeVFX;

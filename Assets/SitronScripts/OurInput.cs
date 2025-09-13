@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class OurInput : MonoBehaviour
 {
-    KeyCode _leftSteering;
-    KeyCode _rightSteering;
+    public KeyCode LeftSteering { get; private set; }
+    public KeyCode RightSteering { get; private set; }
+
 
     [SerializeField] TMP_Text _leftSteerText;
     [SerializeField] TMP_Text _rightSteerText;
@@ -22,10 +23,10 @@ public class OurInput : MonoBehaviour
         int firstKey = Random.Range(0, UnityKeyboardLayout.KeysByPosition.Count-1);
 
         var left = UnityKeyboardLayout.KeysByPosition.ElementAt(firstKey);
-        _leftSteering = left.Value;
+        LeftSteering = left.Value;
         Vector2 leftSteeringPos = left.Key;
 
-        _leftSteerText.text = $"Left: {_leftSteering}";
+        _leftSteerText.text = $"Left: {LeftSteering}";
 
         float rightInset = Random.Range(0, 960);
         _leftSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, rightInset, 300);
@@ -42,10 +43,10 @@ public class OurInput : MonoBehaviour
         int secondKey = Random.Range(0, adepts.Count-1);
 
         var right = UnityKeyboardLayout.KeysByPosition.ElementAt(secondKey);
-        _rightSteering = right.Value;
+        RightSteering = right.Value;
         Vector2 rightSteeringPos = right.Key;
 
-        _rightSteerText.text = $"Right: {_rightSteering}";
+        _rightSteerText.text = $"Right: {RightSteering}";
 
         float leftInset = Random.Range(0, 960);
         _rightSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, leftInset, 300);
@@ -73,9 +74,9 @@ public class OurInput : MonoBehaviour
         }
 
         float steerInput = 0;
-        if (Input.GetKey(_leftSteering))
+        if (Input.GetKey(LeftSteering))
             steerInput -= 1;
-        if (Input.GetKey(_rightSteering))
+        if (Input.GetKey(RightSteering))
             steerInput += 1;
 
         controlledVehicle.SetForwardInput(accel);
@@ -83,7 +84,7 @@ public class OurInput : MonoBehaviour
 
         _accelerationText.text = (accel).ToString();
 
-        Debug.Log(_currentY);
+        // Debug.Log(_currentY);
     }
 
     private static float GetManhattanDistance(Vector2 k1, Vector2 k2)
