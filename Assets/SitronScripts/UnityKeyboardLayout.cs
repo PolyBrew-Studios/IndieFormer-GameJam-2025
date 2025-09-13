@@ -25,11 +25,7 @@ public static class UnityKeyboardLayout
             }
         }
 
-        AddKey(KeyCode.SysReq, 15.5f, 0f); // PrintScreen
-        AddKey(KeyCode.ScrollLock, 16.5f, 0f);
-        AddKey(KeyCode.Pause, 17.5f, 0f);
 
-        AddKey(KeyCode.BackQuote, 0f, 1f);
         AddKey(KeyCode.Alpha1, 1f, 1f);
         AddKey(KeyCode.Alpha2, 2f, 1f);
         AddKey(KeyCode.Alpha3, 3f, 1f);
@@ -43,7 +39,6 @@ public static class UnityKeyboardLayout
         AddKey(KeyCode.Minus, 11f, 1f);
         AddKey(KeyCode.Equals, 12f, 1f);
 
-        AddKey(KeyCode.Tab, 0.75f, 2f);
         AddKey(KeyCode.Q, 1.5f, 2f);
         AddKey(KeyCode.W, 2.5f, 2f);
         AddKey(KeyCode.E, 3.5f, 2f);
@@ -54,9 +49,6 @@ public static class UnityKeyboardLayout
         AddKey(KeyCode.I, 8.5f, 2f);
         AddKey(KeyCode.O, 9.5f, 2f);
         AddKey(KeyCode.P, 10.5f, 2f);
-        AddKey(KeyCode.LeftBracket, 11.5f, 2f);
-        AddKey(KeyCode.RightBracket, 12.5f, 2f);
-        AddKey(KeyCode.Backslash, 13.5f, 2f);
 
         AddKey(KeyCode.A, 1.75f, 3f);
         AddKey(KeyCode.S, 2.75f, 3f);
@@ -67,8 +59,6 @@ public static class UnityKeyboardLayout
         AddKey(KeyCode.J, 7.75f, 3f);
         AddKey(KeyCode.K, 8.75f, 3f);
         AddKey(KeyCode.L, 9.75f, 3f);
-        AddKey(KeyCode.Semicolon, 10.75f, 3f);
-        AddKey(KeyCode.Quote, 11.75f, 3f);
 
         AddKey(KeyCode.Z, 2.25f, 4f);
         AddKey(KeyCode.X, 3.25f, 4f);
@@ -77,12 +67,8 @@ public static class UnityKeyboardLayout
         AddKey(KeyCode.B, 6.25f, 4f);
         AddKey(KeyCode.N, 7.25f, 4f);
         AddKey(KeyCode.M, 8.25f, 4f);
-        AddKey(KeyCode.Comma, 9.25f, 4f);
-        AddKey(KeyCode.Period, 10.25f, 4f);
-        AddKey(KeyCode.Slash, 11.25f, 4f);
 
         AddKey(KeyCode.Space, 7.25f, 5f); // Mezerník jako hlavní klávesa
-        AddKey(KeyCode.Menu, 12.25f, 5f);
 
         AddKey(KeyCode.Insert, 15f, 1.5f);
         AddKey(KeyCode.Home, 16f, 1.5f);
