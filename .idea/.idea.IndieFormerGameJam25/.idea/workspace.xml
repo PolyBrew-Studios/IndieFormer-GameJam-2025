@@ -6,19 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="e8515a5e-909f-4c21-9ada-60493db5bbcf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IndieFormerGameJam25/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IndieFormerGameJam25/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Bench.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Bench.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Bike/Bike.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Bike/Bike.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Carju_0.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Carju_0.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Trash.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Trash.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Prototype/BuildingBlocks/Road_Sidewalk.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Prototype/BuildingBlocks/Road_Sidewalk.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/fb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/fb.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/football.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/football.mat.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VehicleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VehicleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerForceFieldAdjuster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/test.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerForceFieldAdjuster.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SitronScripts/OurInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SitronScripts/OurInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SitronScripts/UnityKeyboardLayout.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SitronScripts/UnityKeyboardLayout.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/BallObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/BallObstacle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/FallingTreeObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/FallingTreeObstacle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstacleBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstacleBase.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +30,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/22e77e907b78409c9389032e02bef2d1292630/0f/fc4adaf5/AppVerifier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/89527d299cb64ba88f87240781b415e51ea400/21/b63a008f/UnitySynchronizationContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FallingTreeObstacle.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -49,14 +46,14 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;bike-controls&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Obstacles&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -100,15 +97,13 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31748">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="31748" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
