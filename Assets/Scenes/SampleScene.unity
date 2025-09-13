@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: controlledVehicle
       value: 
       objectReference: {fileID: 6558670644234481734}
+    - target: {fileID: 7648131915436823308, guid: 7aea33e021ab3184c9ee870c9c1c486b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9015891106177717183, guid: 7aea33e021ab3184c9ee870c9c1c486b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2212.6274
@@ -312,14 +316,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6114597767995288529, guid: 9e7142a9783a208458d93fc94e586589, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 6114597767995288529, guid: 9e7142a9783a208458d93fc94e586589, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 12.65
-      objectReference: {fileID: 0}
     - target: {fileID: 6749478131883324317, guid: 9e7142a9783a208458d93fc94e586589, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.52
@@ -360,8 +356,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 193229501263862069, guid: 9e7142a9783a208458d93fc94e586589, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

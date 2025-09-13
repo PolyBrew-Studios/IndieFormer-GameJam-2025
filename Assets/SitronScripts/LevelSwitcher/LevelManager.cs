@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] Transform _start;
     [SerializeField] ColliderNotifier _end;
     [SerializeField] TMP_Text _resultText;
     [SerializeField] TMP_Text _counter;
@@ -20,9 +19,6 @@ public class LevelManager : MonoBehaviour
     bool _isRunning = true;
     private void Start()
     {
-        var character = GameObject.FindFirstObjectByType<ActiveCarPrefabSelector>();
-        character.transform.position = _start.position;
-
         _end.ColliderHit += async () =>
         {
             _resultText.enabled=true;
