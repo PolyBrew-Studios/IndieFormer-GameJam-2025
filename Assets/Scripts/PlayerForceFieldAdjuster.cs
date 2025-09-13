@@ -124,25 +124,25 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
                 targetLean = _bikeFallRotation_L; // default
         }
 
+        
+        // rotationAngleCheck
+        Transform rotSource = (_rigidbody != null) ? _rigidbody.transform : transform;
+
+        // degrees between body up and world up
+        float uprightAngle = Vector3.Angle(rotSource.up, Vector3.up);
+        // at 90 degrees, we're fallen off the bike'
+        if (uprightAngle >= 90f)
+        {
+            isFalling = true;
+            isFallenOff = true;
+            Debug.Log($"Fallen over (uprightAngle={uprightAngle:0.0})");
+        }
+
         isFalling = targetLean != 0f;
 
         // if starting to fall, check if we already flipped to the ground by shooting a raycast to the falling side of the bike
         if (isFalling)
         {
-            
-            // rotationAngleCheck
-            Transform rotSource = (_rigidbody != null) ? _rigidbody.transform : transform;
-
-            // Winkel zwischen Körper-Up und Welt-Up
-            float uprightAngle = Vector3.Angle(rotSource.up, Vector3.up);
-
-            // Ab 90° liegt das Fahrzeug auf der Seite -> als gefallen werten
-            if (uprightAngle >= 90f)
-            {
-                isFallenOff = true;
-                Debug.Log($"Fallen over (uprightAngle={uprightAngle:0.0})");
-            }
-            
             // steer right
             if (_lastSteerDir == 0  || _lastSteerDir < 0)
             {
@@ -154,7 +154,7 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
                 {
                     if (hit.collider != null)
                     {
-                        Debug.Log("Fallen over L");
+                        // Debug.Log("Fallen over L");
                         isFallenOff = true;
                     }
                                             
@@ -172,7 +172,7 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
                 {
                     if (hit.collider != null)
                     {
-                        Debug.Log("Fallen over R");                    
+                        // Debug.Log("Fallen over R");                    
                         isFallenOff = true;
                         
                     }

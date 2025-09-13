@@ -18,6 +18,10 @@ public class VehicleController : MonoBehaviour
 
     [Header("Bike Mode")]
     [SerializeField] private bool bikeMode = true;
+    [SerializeField] private int currentGear = 0; // -1 is reverse, 0 is first
+    [SerializeField] private int maxGear = 3;
+    [SerializeField] private List<int> gearAccelerationSpeeds = new List<int>() { 20, 30, 50 };
+    [SerializeField] private List<int> gearMaxSpeed = new List<int>() { 10, 25, 50 };
     
     [Header("Suspension")]
     [SerializeField]
@@ -69,6 +73,10 @@ public class VehicleController : MonoBehaviour
     private float _reverseInput = 0;
     private float _steerInput = 0;
     private bool _isBraking = false;
+    
+    private bool gearDownShift = false;
+    private bool gearUpShift = false;
+    
 
     // Calculations
     private Vector3 _currentLocalVelocity = Vector3.zero;
@@ -156,9 +164,43 @@ public class VehicleController : MonoBehaviour
         if (_isGrounded)
         {
             Turn();
+            AdjustGearShift();
             SidewaysDrag();
             WheelAcceleration();
             DownForce();
+        }
+    }
+
+    private void AdjustGearShift()
+    {
+        if (gearUpShift)
+        {
+            currentGear++;
+            if (currentGear <= gearAccelerationSpeeds.Count - 1)
+            {
+                currentGear = gearAccelerationSpeeds.Count - 1;
+            }
+            gearUpShift = false;
+        }
+        else if (gearDownShift)
+        {
+            currentGear--;
+            if (currentGear >= -1)
+            {
+                currentGear = -1;
+            }
+            gearDownShift = false;
+        }
+
+        if (currentGear <= -1)
+        {
+            
+            // todo: reverse logic in here
+        }
+        else
+        {
+            acceleration = gearAccelerationSpeeds[currentGear];
+            maxSpeed = gearMaxSpeed[currentGear];
         }
     }
 
@@ -285,6 +327,7 @@ public class VehicleController : MonoBehaviour
             int turningWheels = 2;
             if(bikeMode)
                 turningWheels = 1;
+            
             if (i < turningWheels) // Only apply for the front 2 tires
             {
                 // Setup Forces
@@ -511,6 +554,16 @@ public class VehicleController : MonoBehaviour
     {
        _isBraking = isBraking;
     }
+    public void GearDownShift()
+    {
+        gearDownShift = true;
+    }
+    public void GearUpShift()
+    {
+        gearUpShift = true;
+    }
+    
+    
     #endregion
 
     #region Audio
