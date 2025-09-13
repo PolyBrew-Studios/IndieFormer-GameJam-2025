@@ -23,9 +23,12 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
     [SerializeField] private float minSpringStiffness = 120;
     [SerializeField] private float minDamperStiffness = 120;
     
-    
+    [Header("PlayerModel")]    
     [SerializeField] private GameObject playerStatic;
     [SerializeField] private GameObject playerRagdoll;
+    
+    [Header("InputSystem")]    
+    [SerializeField]  private OurInput _currentInputSystem;
     
     // Runtime values
     private float _currentSteeringAngle;
@@ -33,7 +36,6 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
     private float _currentDamperStiffness;
 
     private VehicleController _vehicleController;
-    [SerializeField]  private OurInput _currentInputSystem;
     private Rigidbody _rigidbody;
 
     // Idle tracking
@@ -43,7 +45,7 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
 
     private bool isFalling = false;
     private bool isFallenOff = false;
-
+    
     // Public API to trigger fallen state externally (e.g., from obstacles)
     public void EnableFallenOff()
     {
@@ -66,6 +68,7 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
         // Remember starting rotation
         _bikePivot = _bikePivot == null ? transform : _bikePivot;
         _baseLocalRotation = _bikePivot.localRotation;
+        
     }
 
     private void FixedUpdate()
@@ -126,10 +129,24 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
         // if starting to fall, check if we already flipped to the ground by shooting a raycast to the falling side of the bike
         if (isFalling)
         {
+            
+            // rotationAngleCheck
+            Transform rotSource = (_rigidbody != null) ? _rigidbody.transform : transform;
+
+            // Winkel zwischen Körper-Up und Welt-Up
+            float uprightAngle = Vector3.Angle(rotSource.up, Vector3.up);
+
+            // Ab 90° liegt das Fahrzeug auf der Seite -> als gefallen werten
+            if (uprightAngle >= 90f)
+            {
+                isFallenOff = true;
+                Debug.Log($"Fallen over (uprightAngle={uprightAngle:0.0})");
+            }
+            
             // steer right
             if (_lastSteerDir == 0  || _lastSteerDir < 0)
             {
-
+                // raycast check as fallback detection
                 var leftAnchor = _vehicleController.tireAnchors[1];
                 
                 Debug.DrawLine(leftAnchor.position, leftAnchor.position + Vector3.right * 20f, Color.lightYellow);
@@ -142,9 +159,12 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
                     }
                                             
                 }
+                
+
             }
             else if (_lastSteerDir > 0)
             {
+                // raycast check as fallback detection
                 var rightAnchor = _vehicleController.tireAnchors[2];
                 
                 Debug.DrawLine(rightAnchor.position, rightAnchor.position + Vector3.right * 20f, Color.lightYellow);

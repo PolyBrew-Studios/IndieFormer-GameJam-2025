@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BallObstacle : MonoBehaviour, IObstacle
+public class BallObstacle : ObstacleBase
 {
     [Header("Jump Settings")]
     [SerializeField] private float jumpIntervalSeconds = 3f;
@@ -49,27 +49,5 @@ public class BallObstacle : MonoBehaviour, IObstacle
         _rb.AddForce(Vector3.up * jumpForce, mode);
     }
 
-    // IObstacle implementation
-    public void OnTouch(GameObject toucher)
-    {
-        // Do not move the ball away on touch. Instead, trigger the player's fallen state.
-        if (toucher == null)
-            return;
-        var adjuster = toucher.GetComponentInParent<PlayerForceFieldAdjuster>();
-        if (adjuster != null)
-        {
-            adjuster.EnableFallenOff();
-        }
-    }
 
-    // If you want automatic touch detection, enable trigger or collider and use one of these:
-    private void OnCollisionEnter(Collision collision)
-    {
-        OnTouch(collision.gameObject);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        OnTouch(other.gameObject);
-    }
 }
