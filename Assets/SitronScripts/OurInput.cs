@@ -82,6 +82,13 @@ public class OurInput : MonoBehaviour
         controlledVehicle.SetForwardInput(accel);
         controlledVehicle.SetTurnInput(steerInput);
 
+        if (Input.GetKeyDown(KeyCode.Q)) //tmp
+            if(Input.GetKeyUp(KeyCode.Q))
+                controlledVehicle.GearDownShift();
+        if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyUp(KeyCode.E))
+                controlledVehicle.GearUpShift();
+        
         _accelerationText.text = (accel).ToString();
 
         // Debug.Log(_currentY);

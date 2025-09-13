@@ -79,9 +79,9 @@ public class VehicleController : MonoBehaviour
     
 
     // Calculations
-    private Vector3 _currentLocalVelocity = Vector3.zero;
-    private float _velocityRatio = 0f;
-    private float _currentSteeringAngle = 0f;
+    public Vector3 _currentLocalVelocity {get;set;}= Vector3.zero;
+    public float _velocityRatio          {get;set;}= 0f;
+    public float _currentSteeringAngle   {get;set;}= 0f;
 
     // Containers
     private Transform _partsContainer;
