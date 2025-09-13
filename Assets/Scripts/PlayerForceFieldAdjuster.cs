@@ -23,6 +23,10 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
     [SerializeField] private float minSpringStiffness = 120;
     [SerializeField] private float minDamperStiffness = 120;
     
+    
+    [SerializeField] private GameObject playerStatic;
+    [SerializeField] private GameObject playerRagdoll;
+    
     // Runtime values
     private float _currentSteeringAngle;
     private float _currentSpringStiffness;
@@ -159,7 +163,8 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
         }
         else
         {
-            
+            playerStatic?.SetActive(false);
+            playerRagdoll?.SetActive(true);
             
             _vehicleController.enabled = false;
         }
