@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BallObstacle : ObstacleBase
+public class BallObstacle : Obstacle
 {
     [Header("Jump Settings")]
     [SerializeField] private float jumpIntervalSeconds = 3f;

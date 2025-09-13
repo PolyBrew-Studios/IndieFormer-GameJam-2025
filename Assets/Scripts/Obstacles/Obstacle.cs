@@ -5,7 +5,7 @@ using UnityEngine;
 /// default forwarding from collision/trigger events.
 /// Also includes helper to affect the player (e.g., mark them as fallen).
 /// </summary>
-public abstract class ObstacleBase : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
   
     protected virtual void OnCollisionEnter(Collision collision)

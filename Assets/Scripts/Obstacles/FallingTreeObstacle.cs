@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class FallingTreeObstacle : ObstacleBase
+public class FallingTreeObstacle : Obstacle
 {
     [Header("Setup")]
     [SerializeField] private Transform _pivot;
@@ -26,6 +26,8 @@ public class FallingTreeObstacle : ObstacleBase
     private Quaternion _preLeanLocalRotation;
     private Quaternion _fallTargetLocalRotation;
     private float _preLeanHoldTimer = 0f;
+
+    private bool hasBeenFallenOver = false;
 
     private void Awake()
     {
@@ -85,9 +87,10 @@ public class FallingTreeObstacle : ObstacleBase
                 // re-enable physics if present
                 if (_rb != null)
                 {
-                    _rb.isKinematic = false;
+                    _rb.isKinematic = true;
                     _rb.linearVelocity = Vector3.zero;
                     _rb.angularVelocity = Vector3.zero;
+                    hasBeenFallenOver = true;
                 }
             }
         }
@@ -95,6 +98,9 @@ public class FallingTreeObstacle : ObstacleBase
 
     protected  void OnTriggerEnter(Collider other)
     {
+        if(hasBeenFallenOver)
+            return;
+        
         if (other.CompareTag("Player"))
         {
             // Start at base rotation, then do a small opposite lean before falling
