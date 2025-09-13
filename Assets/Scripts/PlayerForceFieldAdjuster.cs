@@ -43,6 +43,12 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
 
     private bool isFalling = false;
     private bool isFallenOff = false;
+
+    // Public API to trigger fallen state externally (e.g., from obstacles)
+    public void EnableFallenOff()
+    {
+        isFallenOff = true;
+    }
     
     // Rotation bases
     private Quaternion _baseLocalRotation;
