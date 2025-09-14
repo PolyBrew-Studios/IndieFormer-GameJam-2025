@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
-using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
     [SerializeField] private Transform _checkpointSpawnPoint;
     [SerializeField] private Vector3 _checkpointSpawnPointPosition;
-    [SerializeField] private Quaternion _checkpointSpawnPointRotation;
-    [SerializeField] private bool hasBeenHit = false;
+    [SerializeField] public Quaternion _checkpointSpawnPointRotation;
+    [SerializeField] public bool hasBeenHit = false;
     
     [SerializeField] private float recordedTime = 0f;
     
@@ -16,6 +15,7 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] public PlayerForceFieldAdjuster playerForceFieldAdjuster;
     
     [SerializeField] private List<GameObject> _hidableObjects;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,23 +31,38 @@ public class Checkpoint : MonoBehaviour
         }
         
         // Use a valid identity rotation by default
-        _checkpointSpawnPointRotation = Quaternion.identity;
+        // _checkpointSpawnPointRotation = Quaternion.identity;
     }
 
     public void RespawnFromCheckpoint()
     {
         var controller = _vehicleController.transform;
         controller.position = _checkpointSpawnPointPosition;
+        
+        
+ 
+        controller.rotation = _checkpointSpawnPointRotation;
+        
 
-        // Reset rotation to be upright (align up with world Y) while preserving current yaw
-        Vector3 euler = controller.eulerAngles;
-        Quaternion uprightRotation = Quaternion.Euler(0f, euler.y, 0f);
-        controller.rotation = uprightRotation;
+        // Vector3 euler = controller.eulerAngles;
+        // Quaternion uprightRotation = Quaternion.Euler(0f, euler.y, 0f);
+        // controller.rotation = uprightRotation;
+        //
+        //
+        //
+        // if (_manualSpawnEulerOffset != Vector3.zero)
+        // {
+        //     rotationToApply = rotationToApply * Quaternion.Euler(_manualSpawnEulerOffset.x, _manualSpawnEulerOffset.y, _manualSpawnEulerOffset.z);
+        // }
+        //
+        // controller.rotation = rotationToApply;
+        //
         GameManager.levelManager.ResetTime(recordedTime);
         playerForceFieldAdjuster.ResetPlayer();
         
     }
     
+  
 
     private void OnTriggerEnter(Collider other)
     {
@@ -56,6 +71,8 @@ public class Checkpoint : MonoBehaviour
             hasBeenHit = true;
             GameManager.SetSpawn(this);
             recordedTime = GameManager.levelManager.GetTime();
+            _checkpointSpawnPointRotation = other.transform.rotation;
+            
             foreach (var obj in _hidableObjects)
             {
                 obj.SetActive(false);
