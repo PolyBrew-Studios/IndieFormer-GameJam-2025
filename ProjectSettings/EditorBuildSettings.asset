@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1 - Original.unity
     guid: 2af29678f0b01c34b9cffcdb78005ee7
+  - enabled: 1
+    path: Assets/Scenes/level 2 - Park.unity
+    guid: f114616766afc8341a60ca67f105c483
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
