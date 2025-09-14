@@ -838,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e545eb62d98803c498c43336c7543526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2918262443242228153}
+  target: {fileID: 9103529675016398371}
   rearCamera: {fileID: 813633919087951934}
   rearAudioListener: {fileID: 5571969946610904409}
   cameraSettings: {fileID: 11400000, guid: 7041d2b664380eb43b2ff6f4ac81f418, type: 2}
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   damperStiffness: 3000
   restLength: 0.1
   springTravel: 0.2
-  wheelRadius: 0.4
+  wheelRadius: 0.1
   steerStrength: 400
   maxSteeringAngle: 40
   turningCurve:

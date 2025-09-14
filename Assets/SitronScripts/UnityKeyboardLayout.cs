@@ -43,7 +43,7 @@ public static class UnityKeyboardLayout
         AddKey(KeyCode.Q, 1.5f, 2f);
         AddKey(KeyCode.W, 2.5f, 2f);
         AddKey(KeyCode.E, 3.5f, 2f);
-        AddKey(KeyCode.R, 4.5f, 2f);
+        // AddKey(KeyCode.R, 4.5f, 2f);
         AddKey(KeyCode.T, 5.5f, 2f);
         AddKey(KeyCode.Y, 6.5f, 2f);
         AddKey(KeyCode.U, 7.5f, 2f);
