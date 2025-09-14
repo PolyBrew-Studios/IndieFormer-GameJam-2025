@@ -96,6 +96,7 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
+        Time.timeScale = 1;
         _isRunning = false;
         try
         {
