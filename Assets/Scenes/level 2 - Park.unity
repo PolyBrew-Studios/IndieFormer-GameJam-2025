@@ -5457,14 +5457,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1888059519455726954, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4764444162558734838, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
-      propertyPath: tireGripFactor
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8578467954041872295, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
       propertyPath: m_Name
       value: UltimatePlayerController

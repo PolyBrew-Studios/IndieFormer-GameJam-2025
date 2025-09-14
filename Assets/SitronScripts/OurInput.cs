@@ -30,7 +30,7 @@ public class OurInput : MonoBehaviour
             RefreshKeyBindings();
             yield return new WaitForSeconds(10);
         }
-// #endif
+#endif
     }
     void RefreshKeyBindings()
     {
