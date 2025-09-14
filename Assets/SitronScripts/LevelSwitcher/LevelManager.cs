@@ -44,10 +44,12 @@ public class LevelManager : MonoBehaviour
         };
     }
 
-    public void ResetTime()
+    public void ResetTime(float recordedTime)
     {
-        _timeFromStart = 0f;
+        _timeFromStart = recordedTime;
     }
+
+    public float GetTime() => _timeFromStart;
     
     private void OpenEndLevelScreen()
     {

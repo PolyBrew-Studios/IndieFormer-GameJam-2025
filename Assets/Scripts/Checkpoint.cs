@@ -9,7 +9,9 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private Vector3 _checkpointSpawnPointPosition;
     [SerializeField] private Quaternion _checkpointSpawnPointRotation;
     [SerializeField] private bool hasBeenHit = false;
-
+    
+    [SerializeField] private float recordedTime = 0f;
+    
     [SerializeField] public VehicleController _vehicleController;
     [SerializeField] public PlayerForceFieldAdjuster playerForceFieldAdjuster;
     
@@ -41,7 +43,7 @@ public class Checkpoint : MonoBehaviour
         Vector3 euler = controller.eulerAngles;
         Quaternion uprightRotation = Quaternion.Euler(0f, euler.y, 0f);
         controller.rotation = uprightRotation;
-        GameManager.levelManager.ResetTime();
+        GameManager.levelManager.ResetTime(recordedTime);
         playerForceFieldAdjuster.ResetPlayer();
         
     }
@@ -53,7 +55,7 @@ public class Checkpoint : MonoBehaviour
         {
             hasBeenHit = true;
             GameManager.SetSpawn(this);
-                
+            recordedTime = GameManager.levelManager.GetTime();
             foreach (var obj in _hidableObjects)
             {
                 obj.SetActive(false);
