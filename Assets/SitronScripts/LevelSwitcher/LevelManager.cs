@@ -8,23 +8,76 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] ColliderNotifier _end;
+    private ColliderNotifier _end;
     [SerializeField] TMP_Text _resultText;
     [SerializeField] TMP_Text _counter;
     [SerializeField] float _threeStarTreshold;
     [SerializeField] float _twoStarTreshold;
     [SerializeField] float _oneStarTreshold;
+    
+    [SerializeField] GameObject EndLevelScreen;
+    
+    [SerializeField] GameObject unStar1;
+    [SerializeField] GameObject unStar2;
+    [SerializeField] GameObject unStar3;
+    
+    [SerializeField] GameObject Star1;
+    [SerializeField] GameObject Star2;
+    [SerializeField] GameObject Star3;
+    
+    
+    
+    
 
     float _timeFromStart = 0;
     bool _isRunning = true;
     private void Start()
     {
+        // just find the end automatically
+        _end = FindObjectsByType <ColliderNotifier>(FindObjectsSortMode.InstanceID)[0];
+        
         _end.ColliderHit += async () =>
         {
             _resultText.enabled=true;
-            await NextLevel();
+            // await NextLevel();
+            OpenEndLevelScreen();
+
         };
     }
+
+    private void OpenEndLevelScreen()
+    {
+        EndLevelScreen.SetActive(true);
+        Time.timeScale = 0;
+        
+        int stars = 0;
+
+        if (_timeFromStart > _oneStarTreshold)
+            stars = 1;
+        else if (_timeFromStart > _twoStarTreshold)
+            stars = 2;
+        else if (_timeFromStart > _threeStarTreshold)
+            stars = 3;
+
+        if (stars > 2)
+        {
+            unStar3.SetActive(false);
+            Star3.SetActive(true);
+        }
+        if (stars > 1)
+        {
+            unStar2.SetActive(false);
+            Star2.SetActive(true);
+        }
+        if (stars > 0)
+        {
+            unStar1.SetActive(false);
+            Star1.SetActive(true);
+        }
+        
+        
+    }
+
     private void Update()
     {
         if (!_isRunning)
@@ -41,22 +94,11 @@ public class LevelManager : MonoBehaviour
             _counter.color = Color.green;
     }
 
-    public async Awaitable NextLevel()
+    public void NextLevel()
     {
         _isRunning = false;
-
-        if (_timeFromStart < _twoStarTreshold)
-            _resultText.text = "You have done it again!";
-        else if (_timeFromStart < _threeStarTreshold)
-            _resultText.text = "Not great not terrible!";
-        else if (_timeFromStart > _threeStarTreshold)
-        {
-            _resultText.text = "Honestly, this is attrocious time, try again!!!";
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
         try
         {
-            await Awaitable.WaitForSecondsAsync(3);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         catch
