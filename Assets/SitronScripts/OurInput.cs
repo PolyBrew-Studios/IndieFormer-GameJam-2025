@@ -18,12 +18,19 @@ public class OurInput : MonoBehaviour
     float _steerInput = 0;
     IEnumerator Start()
     {
-
+#if DEBUG
+        LeftSteering = KeyCode.A;
+        RightSteering = KeyCode.D;
+        _leftSteerText.enabled = false;
+        _rightSteerText.enabled = false;
+        yield return null;
+#else
         while(true)
         {
             RefreshKeyBindings();
             yield return new WaitForSeconds(10);
         }
+#endif
     }
     void RefreshKeyBindings()
     {
