@@ -2746,63 +2746,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a4c316a258b5104992983aed393ed88, type: 3}
---- !u!1001 &563772647
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7030044527940438055, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 278.9514
-      objectReference: {fileID: 0}
-    - target: {fileID: 7030044527940438055, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 12.82337
-      objectReference: {fileID: 0}
-    - target: {fileID: 7030044527940438055, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 133.53555
-      objectReference: {fileID: 0}
-    - target: {fileID: 7030044527940438055, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7030044527940438055, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7030044527940438055, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7030044527940438055, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7030044527940438055, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7030044527940438055, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7030044527940438055, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7693393827572339357, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
-      propertyPath: m_Name
-      value: lowpoly bush (18)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c2291cd81c89251459f7f237607bdcd7, type: 3}
 --- !u!1001 &584951545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4878,6 +4821,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4107513786491519353, guid: 8e303c7a7d598994fb0041a80e618257, type: 3}
+      propertyPath: _vehicleController
+      value: 
+      objectReference: {fileID: 1172251906}
+    - target: {fileID: 4107513786491519353, guid: 8e303c7a7d598994fb0041a80e618257, type: 3}
+      propertyPath: playerForceFieldAdjuster
+      value: 
+      objectReference: {fileID: 1172251905}
     - target: {fileID: 7622660553798086796, guid: 8e303c7a7d598994fb0041a80e618257, type: 3}
       propertyPath: m_Name
       value: Checkpoint
@@ -5515,6 +5466,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
+--- !u!114 &1172251905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5610348836148014406, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
+  m_PrefabInstance: {fileID: 1172251904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c47cb296de2c6b4f8784a2dc609cd22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1172251906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4764444162558734838, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
+  m_PrefabInstance: {fileID: 1172251904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b7f71cb31b1b847886fc72a4c4d339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1241142555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6708,6 +6681,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4107513786491519353, guid: 8e303c7a7d598994fb0041a80e618257, type: 3}
+      propertyPath: _vehicleController
+      value: 
+      objectReference: {fileID: 1172251906}
+    - target: {fileID: 4107513786491519353, guid: 8e303c7a7d598994fb0041a80e618257, type: 3}
+      propertyPath: playerForceFieldAdjuster
+      value: 
+      objectReference: {fileID: 1172251905}
     - target: {fileID: 7622660553798086796, guid: 8e303c7a7d598994fb0041a80e618257, type: 3}
       propertyPath: m_Name
       value: Checkpoint (1)
@@ -10029,7 +10010,6 @@ SceneRoots:
   - {fileID: 98105522}
   - {fileID: 419380670}
   - {fileID: 906735024}
-  - {fileID: 563772647}
   - {fileID: 1897759983}
   - {fileID: 1551783043}
   - {fileID: 803201306}
