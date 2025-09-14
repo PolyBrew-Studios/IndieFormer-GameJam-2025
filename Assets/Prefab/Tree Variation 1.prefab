@@ -58,18 +58,30 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c3fb8fbed40729d42a9816c55bee0539, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2758104492627430704}
+      addedObject: {fileID: 4902079412259371666}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c3fb8fbed40729d42a9816c55bee0539, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4902079412259371666}
+      addedObject: {fileID: 4025742694430134922}
   m_SourcePrefab: {fileID: 100100000, guid: c3fb8fbed40729d42a9816c55bee0539, type: 3}
 --- !u!1 &5831450812235625356 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c3fb8fbed40729d42a9816c55bee0539, type: 3}
   m_PrefabInstance: {fileID: 6641701485853445853}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2758104492627430704
-MeshCollider:
+--- !u!114 &4902079412259371666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5831450812235625356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d41aaddd36a4c2481e3317816e65dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &4025742694430134922
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -86,19 +98,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: c3fb8fbed40729d42a9816c55bee0539, type: 3}
---- !u!114 &4902079412259371666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5831450812235625356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d41aaddd36a4c2481e3317816e65dab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Size: {x: 4, y: 4, z: 6}
+  m_Center: {x: 0, y: 0, z: 2.4097428}
