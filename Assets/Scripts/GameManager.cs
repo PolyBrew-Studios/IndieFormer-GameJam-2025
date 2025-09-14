@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static Checkpoint latestCheckpoint; 
     public VehicleController playerVehicle;
 
+    public static LevelManager levelManager;
+    public LevelManager levelManager1;
     public GameObject PauseMenu;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
         chpnt.playerForceFieldAdjuster = FindAnyObjectByType<PlayerForceFieldAdjuster>();
         // create checkpoint onstart of the level
         latestCheckpoint = Instantiate(chpnt, playerVehicle.transform.position, Quaternion.identity);
+        levelManager = levelManager1;
+        
     }
 
     // Update is called once per frame

@@ -18,7 +18,7 @@ public class OurInput : MonoBehaviour
     float _steerInput = 0;
     IEnumerator Start()
     {
-#if DEBUG
+#if !DEBUG
         LeftSteering = KeyCode.A;
         RightSteering = KeyCode.D;
         _leftSteerText.enabled = false;
@@ -61,6 +61,10 @@ public class OurInput : MonoBehaviour
                 adepts.Add(key.Value);
         }
         int secondKey = Random.Range(0, adepts.Count - 1);
+        while (secondKey == firstKey)
+        {
+            secondKey = Random.Range(0, adepts.Count - 1);
+        }
 
         var right = UnityKeyboardLayout.KeysByPosition.ElementAt(secondKey);
         RightSteering = right.Value;
