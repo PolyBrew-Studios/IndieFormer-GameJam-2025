@@ -78,9 +78,29 @@ public static class UnityKeyboardLayout
         AddKey(KeyCode.DownArrow, 16f, 5.5f);
         AddKey(KeyCode.RightArrow, 17f, 5.5f);
 
-
+        
 
         KeysByPosition = keysByPosition;
         PositionByKey = positionByKey;
+    }
+    public static string KeycodeStringOverride(KeyCode keyCode)
+    {
+        return keyCode switch
+        {
+            KeyCode.Alpha0 => "0",
+            KeyCode.Alpha1 => "1",
+            KeyCode.Alpha2 => "2",
+            KeyCode.Alpha3 => "3",
+            KeyCode.Alpha4 => "4",
+            KeyCode.Alpha5 => "5",
+            KeyCode.Alpha6 => "6",
+            KeyCode.Alpha7 => "7",
+            KeyCode.Alpha8 => "8",
+            KeyCode.Alpha9 => "9",
+            KeyCode.Mouse0 => "LMouse",
+            KeyCode.Mouse1 => "RMouse",
+            _ => keyCode.ToString()
+        };
+
     }
 }

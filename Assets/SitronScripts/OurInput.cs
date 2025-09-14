@@ -9,7 +9,8 @@ public class OurInput : MonoBehaviour
     public KeyCode LeftSteering { get; private set; }
     public KeyCode RightSteering { get; private set; }
 
-
+    [SerializeField] RectTransform _leftSteerParent;
+    [SerializeField] RectTransform _rightSteerParent;
     [SerializeField] TMP_Text _leftSteerText;
     [SerializeField] TMP_Text _rightSteerText;
     [SerializeField] TMP_Text _accelerationText;
@@ -43,11 +44,11 @@ public class OurInput : MonoBehaviour
         LeftSteering = left.Value;
         Vector2 leftSteeringPos = left.Key;
 
-        _leftSteerText.text = $"Left: {LeftSteering}";
+        _leftSteerText.text = $"{UnityKeyboardLayout.KeycodeStringOverride(LeftSteering)}";
 
         float rightInset = Random.Range(0, 910);
-        _leftSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, rightInset, 300);
-        _leftSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1030), 300);
+        _leftSteerParent.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, rightInset, 100);
+        _leftSteerParent.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1000), 100);
 
         List<KeyCode> adepts = new List<KeyCode>();
         foreach (var key in UnityKeyboardLayout.KeysByPosition)
@@ -70,11 +71,11 @@ public class OurInput : MonoBehaviour
         RightSteering = right.Value;
         Vector2 rightSteeringPos = right.Key;
 
-        _rightSteerText.text = $"Right: {RightSteering}";
+        _rightSteerText.text = $"{UnityKeyboardLayout.KeycodeStringOverride(RightSteering)}";
 
         float leftInset = Random.Range(0, 910);
-        _rightSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, leftInset, 300);
-        _rightSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1030), 300);
+        _rightSteerParent.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, leftInset, 100);
+        _rightSteerParent.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1000), 100);
     }
 
     float _yMax = 20;
