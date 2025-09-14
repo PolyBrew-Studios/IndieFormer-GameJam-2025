@@ -36,6 +36,9 @@ public static class UnityKeyboardLayout
         AddKey(KeyCode.Alpha8, 8f, 1f);
         AddKey(KeyCode.Alpha9, 9f, 1f);
         AddKey(KeyCode.Alpha0, 10f, 1f);
+        AddKey(KeyCode.Mouse0, 100f, 1f);
+        AddKey(KeyCode.Mouse1, 100f, 1f);
+
 
         AddKey(KeyCode.Q, 1.5f, 2f);
         AddKey(KeyCode.W, 2.5f, 2f);

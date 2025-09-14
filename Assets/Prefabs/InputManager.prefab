@@ -48,6 +48,7 @@ MonoBehaviour:
   _leftSteerText: {fileID: 3205432484846222495}
   _rightSteerText: {fileID: 6410704345498725752}
   _accelerationText: {fileID: 5161851551823104921}
+  controlledVehicle: {fileID: 0}
 --- !u!1 &1614746282711518249
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9052194531112764634
 RectTransform:
   m_ObjectHideFlags: 0

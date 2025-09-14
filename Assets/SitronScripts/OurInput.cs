@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -15,12 +16,21 @@ public class OurInput : MonoBehaviour
     [SerializeField] VehicleController controlledVehicle;
 
     float _steerInput = 0;
-    void Start()
+    IEnumerator Start()
+    {
+
+        while(true)
+        {
+            RefreshKeyBindings();
+            yield return new WaitForSeconds(10);
+        }
+    }
+    void RefreshKeyBindings()
     {
         float minManhattanDistance = 10;
 
 
-        int firstKey =  Random.Range(0, UnityKeyboardLayout.KeysByPosition.Count-1);
+        int firstKey = Random.Range(0, UnityKeyboardLayout.KeysByPosition.Count - 1);
 
         var left = UnityKeyboardLayout.KeysByPosition.ElementAt(firstKey);
         LeftSteering = left.Value;
@@ -28,12 +38,12 @@ public class OurInput : MonoBehaviour
 
         _leftSteerText.text = $"Left: {LeftSteering}";
 
-        float rightInset = Random.Range(0, 960);
+        float rightInset = Random.Range(0, 910);
         _leftSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, rightInset, 300);
-        _leftSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1080), 300);
+        _leftSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1030), 300);
 
         List<KeyCode> adepts = new List<KeyCode>();
-        foreach(var key in UnityKeyboardLayout.KeysByPosition)
+        foreach (var key in UnityKeyboardLayout.KeysByPosition)
         {
             if (key.Value == LeftSteering)
                 continue;
@@ -43,7 +53,7 @@ public class OurInput : MonoBehaviour
             if (distance > minManhattanDistance)
                 adepts.Add(key.Value);
         }
-        int secondKey = Random.Range(0, adepts.Count-1);
+        int secondKey = Random.Range(0, adepts.Count - 1);
 
         var right = UnityKeyboardLayout.KeysByPosition.ElementAt(secondKey);
         RightSteering = right.Value;
@@ -51,9 +61,9 @@ public class OurInput : MonoBehaviour
 
         _rightSteerText.text = $"Right: {RightSteering}";
 
-        float leftInset = Random.Range(0, 960);
+        float leftInset = Random.Range(0, 910);
         _rightSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, leftInset, 300);
-        _rightSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1080), 300);
+        _rightSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1030), 300);
     }
 
     float _yMax = 20;
