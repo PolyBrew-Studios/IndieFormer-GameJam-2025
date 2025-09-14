@@ -27,7 +27,7 @@ public static class UnityKeyboardLayout
 
 
         AddKey(KeyCode.Alpha1, 1f, 1f);
-        AddKey(KeyCode.Alpha2, 2f, 1f);
+        AddKey(KeyCode.Alpha2, 2f, 1f);  
         AddKey(KeyCode.Alpha3, 3f, 1f);
         AddKey(KeyCode.Alpha4, 4f, 1f);
         AddKey(KeyCode.Alpha5, 5f, 1f);

@@ -12,6 +12,8 @@ public class VehicleController : MonoBehaviour
     [SerializeField] private ParticleSystem tireSmokeVFX;
     [SerializeField] private AudioSource engineSound;
     [SerializeField] private AudioSource skidSound;
+    [SerializeField] private Animator bikeAnimator;
+    [SerializeField] private Animator mouseAnimator;
 
     [Header("Layer Mask")]
     [SerializeField] private LayerMask drivableMask;
@@ -157,6 +159,11 @@ public class VehicleController : MonoBehaviour
     {
         _currentLocalVelocity = transform.InverseTransformDirection(_rigidbody.linearVelocity);
         _velocityRatio = _currentLocalVelocity.z / maxSpeed;
+        
+        var nVal = Mathf.Clamp(1, 0, _velocityRatio);
+        
+        bikeAnimator.SetFloat("InputSpeed", nVal);
+        bikeAnimator.SetFloat("BikeSpeed", nVal);
     }
 
     private void Movement()
@@ -330,6 +337,8 @@ public class VehicleController : MonoBehaviour
             
             if (i < turningWheels) // Only apply for the front 2 tires
             {
+  
+                
                 // Setup Forces
                 Vector3 steering_forward = Quaternion.Euler(0f, _currentSteeringAngle, 0f) * tireAnchors[i].forward;
                 Vector3 forward_force = _forwardInput * acceleration * accelerationCurve.Evaluate(Mathf.Abs(_velocityRatio)) / 2f * steering_forward;
@@ -538,6 +547,9 @@ public class VehicleController : MonoBehaviour
     public void SetForwardInput(float value)
     {
         _forwardInput = value;
+        var nVal= Mathf.Clamp(1, 0, value);
+        
+        mouseAnimator.SetFloat("MousePedalIntensity", nVal);
     }
 
     public void SetReverseInput(float value)
