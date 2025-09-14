@@ -268,7 +268,9 @@ public class VehicleController : MonoBehaviour
         float max_distance = restLength + springTravel;
         for (int i = 0; i < tireAnchors.Length; i++)
         {
-            if (Physics.Raycast(tireAnchors[i].position, -tireAnchors[i].up, out hit, max_distance + wheelRadius, drivableMask))
+            // Convert into multiple casts using gravity instead of local down
+            var gravity_direction = Physics.gravity.normalized;
+            if (Physics.Raycast(tireAnchors[i].position, gravity_direction, out hit, max_distance + wheelRadius, drivableMask))
             {
                 _wheelGroundedDistance[i] = hit.distance;
 
