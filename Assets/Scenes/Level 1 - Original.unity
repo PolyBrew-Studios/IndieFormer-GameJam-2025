@@ -5769,6 +5769,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UltimatePlayerController
       objectReference: {fileID: 0}
+    - target: {fileID: 9057766369458335520, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
+      propertyPath: _oneStarTreshold
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057766369458335520, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
+      propertyPath: _twoStarTreshold
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057766369458335520, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
+      propertyPath: _threeStarTreshold
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

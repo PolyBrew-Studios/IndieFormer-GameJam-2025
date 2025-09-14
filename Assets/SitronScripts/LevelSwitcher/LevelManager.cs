@@ -97,8 +97,8 @@ public class LevelManager : MonoBehaviour
             _counter.color = Color.red;
         else if (_timeFromStart > _twoStarTreshold)
             _counter.color = Color.orange;
-        else if (_timeFromStart > _threeStarTreshold)
-            _counter.color = Color.green;
+        else 
+            _counter.color = Color.white;
     }
 
     public void NextLevel()

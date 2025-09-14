@@ -99,6 +99,11 @@ public static class UnityKeyboardLayout
             KeyCode.Alpha9 => "9",
             KeyCode.Mouse0 => "LMouse",
             KeyCode.Mouse1 => "RMouse",
+            KeyCode.DownArrow => "Down",
+            KeyCode.LeftArrow => "Left",
+            KeyCode.UpArrow => "Up",
+            KeyCode.RightArrow => "Right",
+
             _ => keyCode.ToString()
         };
 

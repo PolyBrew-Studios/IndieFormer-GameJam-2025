@@ -29,7 +29,7 @@ public class OurInput : MonoBehaviour
         while(true)
         {
             RefreshKeyBindings();
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(Random.Range(5,15));
         }
 #endif
     }
@@ -48,7 +48,7 @@ public class OurInput : MonoBehaviour
 
         float rightInset = Random.Range(0, 910);
         _leftSteerParent.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, rightInset, 100);
-        _leftSteerParent.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1000), 100);
+        _leftSteerParent.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 900), 100);
 
         List<KeyCode> adepts = new List<KeyCode>();
         foreach (var key in UnityKeyboardLayout.KeysByPosition)
@@ -75,7 +75,7 @@ public class OurInput : MonoBehaviour
 
         float leftInset = Random.Range(0, 910);
         _rightSteerParent.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, leftInset, 100);
-        _rightSteerParent.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1000), 100);
+        _rightSteerParent.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 900), 100);
     }
 
     float _yMax = 20;
