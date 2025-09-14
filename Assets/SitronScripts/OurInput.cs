@@ -100,17 +100,21 @@ public class OurInput : MonoBehaviour
         controlledVehicle.SetForwardInput(accel);
         controlledVehicle.SetTurnInput(_steerInput);
 
-        if (Input.GetKeyDown(KeyCode.Q)) //tmp
-            if(Input.GetKeyUp(KeyCode.Q))
-                controlledVehicle.GearDownShift();
-        if(Input.GetKeyDown(KeyCode.E))
-            if(Input.GetKeyUp(KeyCode.E))
-                controlledVehicle.GearUpShift();
+        // if (Input.GetKeyDown(KeyCode.Q)) //tmp
+        //     if(Input.GetKeyUp(KeyCode.Q))
+        //         controlledVehicle.GearDownShift();
+        // if(Input.GetKeyDown(KeyCode.E))
+        //     if(Input.GetKeyUp(KeyCode.E))
+        //         controlledVehicle.GearUpShift();
+        
+        if(Input.GetKey(KeyCode.R))
+            GameManager.Respawn();
         
         _accelerationText.text = (accel).ToString();
 
          Debug.Log(_steerInput);
     }
+    
 
     private static float GetManhattanDistance(Vector2 k1, Vector2 k2)
     {
