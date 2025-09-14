@@ -1,16 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerForceFieldAdjuster : MonoBehaviour
 {
     [Header("Bike Lean")]
     [SerializeField] private Transform _bikePivot;
-    [SerializeField] private float _bikeFallRotation_L = 15f;
-    [SerializeField] private float _bikeFallRotation_R = -15f;
-    [SerializeField] private float idleDelaySeconds = 2f;
-    [SerializeField] private float lerpDurationSeconds = 2f;
+    [SerializeField] private float _bikeFallRotation_L = 15f; // forces bike to lean left
+    [SerializeField] private float _bikeFallRotation_R = -15f; // forces bike to lean right
+    [SerializeField] private float idleDelaySeconds = 2f; // time the player has before he needs to make an input
+    [SerializeField] private float lerpDurationSeconds = 2f; 
 
-    [SerializeField] private Collider raycastBoxCollider;
     [SerializeField] private float raycastDetectLeftDistance = 2f;
     [SerializeField] private float raycastDetectRightDistance = 2f;
     
@@ -25,7 +25,8 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
     
     [Header("PlayerModel")]    
     [SerializeField] private GameObject playerStatic;
-    [SerializeField] private GameObject playerRagdoll;
+    [SerializeField] private GameObject playerRagdollPrefab;
+    private GameObject _prevRagdoll;
     
     [Header("InputSystem")]    
     [SerializeField]  private OurInput _currentInputSystem;
@@ -43,8 +44,8 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
     private int _lastSteerDir = 0; // -1 left, 1 right, 0 none yet
     private float _idleBlend = 0f; // 0 = original, 1 = fully fallen
 
-    private bool isFalling = false;
-    private bool isFallenOff = false;
+    public bool isFalling { get; set; }= false;
+    public bool isFallenOff { get; set; } = false;
     
     // Public API to trigger fallen state externally (e.g., from obstacles)
     public void EnableFallenOff()
@@ -75,6 +76,9 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
     {
         if (_currentInputSystem == null)
             return;
+        
+        // if(isFallenOff)
+        //     return;
 
         KeyCode left = _currentInputSystem.LeftSteering;
         KeyCode right = _currentInputSystem.RightSteering;
@@ -190,10 +194,61 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
         else
         {
             playerStatic?.SetActive(false);
-            playerRagdoll?.SetActive(true);
-            
+            if (playerStatic != null)
+            {
+                playerStatic?.SetActive(false);
+                // Spawn ragdoll only once (on first frame after fallen-off)
+                if (playerStatic != null && _prevRagdoll == null)
+                {
+                    var newRagdoll = Instantiate(playerRagdollPrefab, playerStatic.transform.position, playerStatic.transform.rotation);
+                    newRagdoll.SetActive(true);
+                    _prevRagdoll = newRagdoll; // remember the instance so we don't spawn again
+                }
+
+                _vehicleController.enabled = false;
+            }
+
             _vehicleController.enabled = false;
+
         }
         
+   
     }
+    
+    public void ResetPlayer()
+    {
+        isFalling = false;
+        isFallenOff = false;
+        if (_bikePivot != null)
+            _bikePivot.localRotation = _baseLocalRotation;
+        else
+            transform.localRotation = _baseLocalRotation;
+        playerStatic?.SetActive(true);
+        // Removed: playerRagdollPrefab?.SetActive(false); // don't toggle prefab
+
+        // Cleanup spawned ragdoll instance and clear the "spawned" state
+        if (_prevRagdoll != null)
+        {
+            Destroy(_prevRagdoll);
+            _prevRagdoll = null;
+        }
+
+
+       
+        _vehicleController.GetRigidBody().linearVelocity = Vector3.zero;
+        _vehicleController.GetRigidBody().angularVelocity = Vector3.zero;
+
+        _currentSteeringAngle = maxSteeringAngle;
+        _currentSpringStiffness = maxSpringStiffness;
+        _currentDamperStiffness = maxDamperStiffness;
+
+        _vehicleController._currentLocalVelocity = Vector3.zero;
+        _vehicleController._velocityRatio = 0f;
+        _vehicleController._currentSteeringAngle = 0f;
+        
+        _timeSinceLastSteerInput = -2f; // grace period
+        _lastSteerDir = 0;
+        _vehicleController.enabled = true;
+    }
+
 }

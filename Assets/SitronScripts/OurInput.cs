@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -14,13 +15,22 @@ public class OurInput : MonoBehaviour
     [SerializeField] TMP_Text _accelerationText;
     [SerializeField] VehicleController controlledVehicle;
 
+    float _steerInput = 0;
+    IEnumerator Start()
+    {
 
-    void Start()
+        while(true)
+        {
+            RefreshKeyBindings();
+            yield return new WaitForSeconds(10);
+        }
+    }
+    void RefreshKeyBindings()
     {
         float minManhattanDistance = 10;
 
 
-        int firstKey = Random.Range(0, UnityKeyboardLayout.KeysByPosition.Count-1);
+        int firstKey = Random.Range(0, UnityKeyboardLayout.KeysByPosition.Count - 1);
 
         var left = UnityKeyboardLayout.KeysByPosition.ElementAt(firstKey);
         LeftSteering = left.Value;
@@ -28,19 +38,22 @@ public class OurInput : MonoBehaviour
 
         _leftSteerText.text = $"Left: {LeftSteering}";
 
-        float rightInset = Random.Range(0, 960);
+        float rightInset = Random.Range(0, 910);
         _leftSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, rightInset, 300);
-        _leftSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1080), 300);
+        _leftSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1030), 300);
 
         List<KeyCode> adepts = new List<KeyCode>();
-        foreach(var key in UnityKeyboardLayout.KeysByPosition)
+        foreach (var key in UnityKeyboardLayout.KeysByPosition)
         {
+            if (key.Value == LeftSteering)
+                continue;
+
             float distance = GetManhattanDistance(leftSteeringPos, key.Key);
 
             if (distance > minManhattanDistance)
                 adepts.Add(key.Value);
         }
-        int secondKey = Random.Range(0, adepts.Count-1);
+        int secondKey = Random.Range(0, adepts.Count - 1);
 
         var right = UnityKeyboardLayout.KeysByPosition.ElementAt(secondKey);
         RightSteering = right.Value;
@@ -48,15 +61,15 @@ public class OurInput : MonoBehaviour
 
         _rightSteerText.text = $"Right: {RightSteering}";
 
-        float leftInset = Random.Range(0, 960);
+        float leftInset = Random.Range(0, 910);
         _rightSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, leftInset, 300);
-        _rightSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1080), 300);
+        _rightSteerText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, Random.Range(0, 1030), 300);
     }
 
     float _yMax = 20;
     float _yMin = -20;
     float _currentY = 0;
-
+    float _steerAmount = 0.01f;
     private void Update()
     {
         float yDelta = Input.mousePositionDelta.y;
@@ -73,19 +86,45 @@ public class OurInput : MonoBehaviour
 
         }
 
-        float steerInput = 0;
+        float currentSteer = 0;
         if (Input.GetKey(LeftSteering))
-            steerInput -= 1;
+            currentSteer -= 1;
         if (Input.GetKey(RightSteering))
-            steerInput += 1;
+            currentSteer += 1;
+
+        if(Mathf.Abs(currentSteer)>0)
+        {
+            _steerInput = Mathf.Clamp(_steerInput+(currentSteer * _steerAmount),-1,1);
+        }
+        else
+        {
+            float v = Mathf.Min(Mathf.Abs(_steerInput), _steerAmount);
+
+            if (_steerInput > 0)
+                _steerInput -= v;
+            else
+                _steerInput += v;
+                    
+        }
 
         controlledVehicle.SetForwardInput(accel);
-        controlledVehicle.SetTurnInput(steerInput);
+        controlledVehicle.SetTurnInput(_steerInput);
 
+        // if (Input.GetKeyDown(KeyCode.Q)) //tmp
+        //     if(Input.GetKeyUp(KeyCode.Q))
+        //         controlledVehicle.GearDownShift();
+        // if(Input.GetKeyDown(KeyCode.E))
+        //     if(Input.GetKeyUp(KeyCode.E))
+        //         controlledVehicle.GearUpShift();
+        
+        if(Input.GetKey(KeyCode.R))
+            GameManager.Respawn();
+        
         _accelerationText.text = (accel).ToString();
 
-        // Debug.Log(_currentY);
+         Debug.Log(_steerInput);
     }
+    
 
     private static float GetManhattanDistance(Vector2 k1, Vector2 k2)
     {

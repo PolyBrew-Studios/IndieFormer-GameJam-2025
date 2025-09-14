@@ -36,13 +36,14 @@ public static class UnityKeyboardLayout
         AddKey(KeyCode.Alpha8, 8f, 1f);
         AddKey(KeyCode.Alpha9, 9f, 1f);
         AddKey(KeyCode.Alpha0, 10f, 1f);
-        AddKey(KeyCode.Minus, 11f, 1f);
-        AddKey(KeyCode.Equals, 12f, 1f);
+        AddKey(KeyCode.Mouse0, 100f, 1f);
+        AddKey(KeyCode.Mouse1, 100f, 1f);
+
 
         AddKey(KeyCode.Q, 1.5f, 2f);
         AddKey(KeyCode.W, 2.5f, 2f);
         AddKey(KeyCode.E, 3.5f, 2f);
-        AddKey(KeyCode.R, 4.5f, 2f);
+        // AddKey(KeyCode.R, 4.5f, 2f);
         AddKey(KeyCode.T, 5.5f, 2f);
         AddKey(KeyCode.Y, 6.5f, 2f);
         AddKey(KeyCode.U, 7.5f, 2f);
@@ -68,7 +69,7 @@ public static class UnityKeyboardLayout
         AddKey(KeyCode.N, 7.25f, 4f);
         AddKey(KeyCode.M, 8.25f, 4f);
 
-        AddKey(KeyCode.Space, 7.25f, 5f); // Mezern�k jako hlavn� kl�vesa
+        AddKey(KeyCode.Space, 7.25f, 5f); 
 
 
 
