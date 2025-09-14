@@ -2434,7 +2434,7 @@ GameObject:
   - component: {fileID: 7901625542740244440}
   - component: {fileID: 4522521804770026538}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4029,9 +4029,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3614012685936728407}
     - target: {fileID: 4003277749923677256, guid: 9e7142a9783a208458d93fc94e586589, type: 3}
+      propertyPath: timeDisplay
+      value: 
+      objectReference: {fileID: 4522521804770026538}
+    - target: {fileID: 4003277749923677256, guid: 9e7142a9783a208458d93fc94e586589, type: 3}
       propertyPath: EndLevelScreen
       value: 
       objectReference: {fileID: 937524165282219613}
+    - target: {fileID: 4003277749923677256, guid: 9e7142a9783a208458d93fc94e586589, type: 3}
+      propertyPath: _oneStarTreshold
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003277749923677256, guid: 9e7142a9783a208458d93fc94e586589, type: 3}
+      propertyPath: _twoStarTreshold
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 6749478131883324317, guid: 9e7142a9783a208458d93fc94e586589, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.2300005

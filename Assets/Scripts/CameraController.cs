@@ -22,6 +22,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float forwardLookAhead = 0.5f;
     [SerializeField] private float turnLookAhead = 2f;
 
+    [Header("Debug")]
+    [SerializeField] private bool disableInputLeading = true;
+
     private Vector2 _inputAxis;
     private bool _isFlipCamera;
     private bool _lastFrameFlipCamera;
@@ -40,8 +43,11 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        _inputAxis.x = Input.GetAxis("Horizontal");
-        _inputAxis.y = Input.GetAxis("Vertical");
+        if (!disableInputLeading)
+        {
+            _inputAxis.x = Input.GetAxis("Horizontal");
+            _inputAxis.y = Input.GetAxis("Vertical");
+        }
 
         // Get "Fire1"
 
