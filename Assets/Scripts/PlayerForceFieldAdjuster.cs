@@ -246,7 +246,7 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
         _vehicleController._velocityRatio = 0f;
         _vehicleController._currentSteeringAngle = 0f;
         
-        _timeSinceLastSteerInput = -10f;
+        _timeSinceLastSteerInput = -2f; // grace period
         _lastSteerDir = 0;
         _vehicleController.enabled = true;
     }
