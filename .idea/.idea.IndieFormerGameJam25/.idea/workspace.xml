@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8515a5e-909f-4c21-9ada-60493db5bbcf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Player.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Player/TextureAtlas.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Player/TextureAtlas.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Player/TheManV1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Models/Player/TheManV1.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IndieFormerGameJam25/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IndieFormerGameJam25/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/UltimatePlayerController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/UltimatePlayerController.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerForceFieldAdjuster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerForceFieldAdjuster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SitronScripts/OurInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SitronScripts/OurInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SitronScripts/UnityKeyboardLayout.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SitronScripts/UnityKeyboardLayout.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,15 +97,13 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="22760">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="22760" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -125,6 +127,7 @@
       <workItem from="1757716711322" duration="1200000" />
       <workItem from="1757764671283" duration="5948000" />
       <workItem from="1757784845610" duration="7659000" />
+      <workItem from="1757859726534" duration="1927000" />
     </task>
     <servers />
   </component>
