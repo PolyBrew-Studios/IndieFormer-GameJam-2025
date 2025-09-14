@@ -25,8 +25,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject Star2;
     [SerializeField] GameObject Star3;
     
-    
-    
+    [SerializeField] TMP_Text timeDisplay;
     
 
     float _timeFromStart = 0;
@@ -52,11 +51,11 @@ public class LevelManager : MonoBehaviour
         
         int stars = 0;
 
-        if (_timeFromStart > _oneStarTreshold)
+        if (_timeFromStart <= _oneStarTreshold)
             stars = 1;
-        else if (_timeFromStart > _twoStarTreshold)
+        if (_timeFromStart <= _twoStarTreshold)
             stars = 2;
-        else if (_timeFromStart > _threeStarTreshold)
+        if (_timeFromStart <= _threeStarTreshold)
             stars = 3;
 
         if (stars > 2)
@@ -75,6 +74,7 @@ public class LevelManager : MonoBehaviour
             Star1.SetActive(true);
         }
         
+        timeDisplay.text = _timeFromStart.ToString("F0") + " Seconds";
         
     }
 
