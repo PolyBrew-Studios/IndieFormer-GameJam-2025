@@ -8950,6 +8950,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FrisbeeSpawner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5514389995661643832, guid: 8c59c85e3d830664f86120be01a9f775, type: 3}
+      propertyPath: _spawnBatchCount
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 7736881945089239578, guid: 8c59c85e3d830664f86120be01a9f775, type: 3}
       propertyPath: m_LocalPosition.x
       value: 114.23715
