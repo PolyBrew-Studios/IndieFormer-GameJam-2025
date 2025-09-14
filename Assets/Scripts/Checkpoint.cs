@@ -41,7 +41,7 @@ public class Checkpoint : MonoBehaviour
         Vector3 euler = controller.eulerAngles;
         Quaternion uprightRotation = Quaternion.Euler(0f, euler.y, 0f);
         controller.rotation = uprightRotation;
-
+        GameManager.levelManager.ResetTime();
         playerForceFieldAdjuster.ResetPlayer();
         
     }

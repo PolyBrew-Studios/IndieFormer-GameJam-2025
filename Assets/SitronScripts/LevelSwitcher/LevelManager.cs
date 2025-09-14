@@ -44,6 +44,11 @@ public class LevelManager : MonoBehaviour
         };
     }
 
+    public void ResetTime()
+    {
+        _timeFromStart = 0f;
+    }
+    
     private void OpenEndLevelScreen()
     {
         EndLevelScreen.SetActive(true);
