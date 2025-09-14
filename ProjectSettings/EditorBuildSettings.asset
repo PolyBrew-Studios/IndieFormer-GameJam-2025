@@ -8,11 +8,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 005146b381e2f5c40950d0dde5521495
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Level 1 - Original.unity
     guid: 2af29678f0b01c34b9cffcdb78005ee7
+  - enabled: 1
+    path: Assets/Scenes/Level_3_Skyscraper.unity
+    guid: 96193f61de5e3814181ce2cd365f8205
+  - enabled: 1
+    path: Assets/Scenes/level 2 - Park.unity
+    guid: f114616766afc8341a60ca67f105c483
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
