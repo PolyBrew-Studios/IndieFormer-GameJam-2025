@@ -4370,7 +4370,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   tireForce: 0.17
   tireMass: 0.16
-  tireGripFactor: 0.22
+  tireGripFactor: 0.5
   gripCurve:
     serializedVersion: 2
     m_Curve:
