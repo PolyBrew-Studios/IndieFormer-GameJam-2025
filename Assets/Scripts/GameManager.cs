@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static Checkpoint latestCheckpoint; 
     public VehicleController playerVehicle;
 
+    
+    
     public static LevelManager levelManager;
     public LevelManager levelManager1;
     public GameObject PauseMenu;
