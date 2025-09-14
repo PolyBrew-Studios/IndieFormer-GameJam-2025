@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8515a5e-909f-4c21-9ada-60493db5bbcf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Player.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Player/TextureAtlas.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Player/TextureAtlas.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Player/TheManV1.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/Player/TheManV1.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.IndieFormerGameJam25/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.IndieFormerGameJam25/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Mouse blockout.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Mouse blockout.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Mouse ragdoll.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Mouse ragdoll.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ActiveCarPrefabSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ActiveCarPrefabSelector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VehicleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VehicleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SitronScripts/UnityKeyboardLayout.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SitronScripts/UnityKeyboardLayout.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level 1 - Original.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level 1 - Original.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +23,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/22e77e907b78409c9389032e02bef2d1292630/0f/fc4adaf5/AppVerifier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ce8bd53d6c34e8aa27451ac5b09a98146ae00/ea/5ad36e0f/Action.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/89527d299cb64ba88f87240781b415e51ea400/21/b63a008f/UnitySynchronizationContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/89527d299cb64ba88f87240781b415e51ea400/4d/7debba45/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f94d23feabb04bb4b93f81d724b016ac9e3000/b5/9197c1ae/GameObjectInspector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -102,10 +94,10 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="39524">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5112">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="39524" />
+      <option name="pid" value="5112" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
         <list>
@@ -134,7 +126,7 @@
       <workItem from="1757716711322" duration="1200000" />
       <workItem from="1757764671283" duration="5948000" />
       <workItem from="1757784845610" duration="7659000" />
-      <workItem from="1757859726534" duration="4770000" />
+      <workItem from="1757859726534" duration="11158000" />
     </task>
     <servers />
   </component>
@@ -166,19 +158,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/VehicleController.cs</url>
-          <line>162</line>
-          <properties documentPath="D:\#DEV\Unity\IndieFormerGameJam25\Assets\Scripts\VehicleController.cs" containingFunctionPresentation="Method 'CalculateCarVelocity'">
-            <startOffsets>
-              <option value="5264" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5309" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
