@@ -3693,15 +3693,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9057766369458335520, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
       propertyPath: _oneStarTreshold
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9057766369458335520, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
       propertyPath: _twoStarTreshold
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9057766369458335520, guid: 2e992bc1a731bfa488ca0b21d46569f5, type: 3}
       propertyPath: _threeStarTreshold
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
