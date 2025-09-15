@@ -16,6 +16,7 @@ public class Checkpoint : MonoBehaviour
     
     [SerializeField] private List<GameObject> _hidableObjects;
     
+    public static Action CheckpointRespawn { get; set; }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,7 +61,7 @@ public class Checkpoint : MonoBehaviour
         //
         GameManager.levelManager.ResetTime(recordedTime);
         playerForceFieldAdjuster.ResetPlayer();
-        
+        CheckpointRespawn?.Invoke();
     }
     
   
