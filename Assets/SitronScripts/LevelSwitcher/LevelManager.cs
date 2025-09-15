@@ -103,6 +103,12 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            // finish
+            SceneManager.LoadScene(0);
+        }
+        
         Time.timeScale = 1;
         _isRunning = false;
         try
