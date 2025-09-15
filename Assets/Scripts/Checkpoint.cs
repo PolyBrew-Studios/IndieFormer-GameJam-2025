@@ -40,7 +40,7 @@ public class Checkpoint : MonoBehaviour
         controller.position = _checkpointSpawnPointPosition;
         
         
- 
+        _vehicleController.deathZoneBelow = false;
         controller.rotation = _checkpointSpawnPointRotation;
         
 

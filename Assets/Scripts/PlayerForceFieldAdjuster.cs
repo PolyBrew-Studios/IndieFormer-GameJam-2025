@@ -114,7 +114,7 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
         _vehicleController.maxSteeringAngle = _currentSteeringAngle;
          _vehicleController.springStiffness = _currentSpringStiffness;
          _vehicleController.damperStiffness = _currentDamperStiffness;
-
+         
         // Compute target lean rotation
         float targetLean = 0f;
         if (_idleBlend > 0f)
@@ -135,7 +135,7 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
         // degrees between body up and world up
         float uprightAngle = Vector3.Angle(rotSource.up, Vector3.up);
         // at 90 degrees, we're fallen off the bike'
-        if (uprightAngle >= 90f)
+        if (uprightAngle >= 90f || _vehicleController.deathZoneBelow)
         {
             isFalling = true;
             isFallenOff = true;

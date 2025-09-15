@@ -78,6 +78,8 @@ public class VehicleController : MonoBehaviour
     
     private bool gearDownShift = false;
     private bool gearUpShift = false;
+
+    public bool deathZoneBelow = false;
     
 
     // Calculations
@@ -265,6 +267,7 @@ public class VehicleController : MonoBehaviour
     #region Physics Applications
     private void Suspension()
     {
+  
         float max_distance = restLength + springTravel;
         for (int i = 0; i < tireAnchors.Length; i++)
         {
@@ -272,6 +275,9 @@ public class VehicleController : MonoBehaviour
             var gravity_direction = Physics.gravity.normalized;
             if (Physics.Raycast(tireAnchors[i].position, gravity_direction, out hit, max_distance + wheelRadius, drivableMask))
             {
+                // deathzone detection
+                deathZoneBelow = hit.transform.gameObject.CompareTag("deathzone");
+                
                 _wheelGroundedDistance[i] = hit.distance;
 
                 float current_spring_length = hit.distance - wheelRadius;
