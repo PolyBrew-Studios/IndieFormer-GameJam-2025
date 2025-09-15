@@ -36,6 +36,7 @@ public class Checkpoint : MonoBehaviour
 
     public void RespawnFromCheckpoint()
     {
+        Debug.Log("Respawning from checkpoint");
         var controller = _vehicleController.transform;
         controller.position = _checkpointSpawnPointPosition;
         
@@ -43,7 +44,7 @@ public class Checkpoint : MonoBehaviour
         _vehicleController.deathZoneBelow = false;
         controller.rotation = _checkpointSpawnPointRotation;
         
-
+        TreeRespawner.respawnTree = true;
         // Vector3 euler = controller.eulerAngles;
         // Quaternion uprightRotation = Quaternion.Euler(0f, euler.y, 0f);
         // controller.rotation = uprightRotation;
@@ -72,6 +73,8 @@ public class Checkpoint : MonoBehaviour
             GameManager.SetSpawn(this);
             recordedTime = GameManager.levelManager.GetTime();
             _checkpointSpawnPointRotation = other.transform.rotation;
+            
+ 
             
             foreach (var obj in _hidableObjects)
             {

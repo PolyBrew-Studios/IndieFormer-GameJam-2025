@@ -3504,6 +3504,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c59c85e3d830664f86120be01a9f775, type: 3}
+--- !u!1 &2146142652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2146142654}
+  - component: {fileID: 2146142653}
+  m_Layer: 0
+  m_Name: TreeRespawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2146142653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146142652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928c26e12417b934ea770af5841ba315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treePrefab: {fileID: 2948098190844960827, guid: ab749772c95fd224fb3e47d995655c18, type: 3}
+  treeToBeReplaced: {fileID: 7658341905942681962}
+--- !u!4 &2146142654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146142652}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.69, y: -0.06, z: 14.367583}
+  m_LocalScale: {x: 3, y: 3, z: 3.96}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &535083805723369208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3840,6 +3886,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab749772c95fd224fb3e47d995655c18, type: 3}
+--- !u!1 &7658341905942681962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2948098190844960827, guid: ab749772c95fd224fb3e47d995655c18, type: 3}
+  m_PrefabInstance: {fileID: 7658341905942681961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7969883312537306342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3994,6 +4045,7 @@ SceneRoots:
   - {fileID: 825741026}
   - {fileID: 59231476}
   - {fileID: 1520460040}
+  - {fileID: 2146142654}
   - {fileID: 7658341905942681961}
   - {fileID: 7969883312537306342}
   - {fileID: 2114085017}

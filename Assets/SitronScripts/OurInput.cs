@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class OurInput : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class OurInput : MonoBehaviour
     [SerializeField] VehicleController controlledVehicle;
 
     float _steerInput = 0;
+    bool respawnRequested = false;
+    
     IEnumerator Start()
     {
         while(true)
@@ -120,15 +124,27 @@ public class OurInput : MonoBehaviour
         // if(Input.GetKeyDown(KeyCode.E))
         //     if(Input.GetKeyUp(KeyCode.E))
         //         controlledVehicle.GearUpShift();
-        
-        if(Input.GetKey(KeyCode.R))
-            GameManager.Respawn();
+
+
+        if (Input.GetKeyDown(KeyCode.R))
+            respawnRequested = true;
         
         _accelerationText.text = (accel).ToString();
 
          Debug.Log(_steerInput);
     }
+
+
     
+    private void FixedUpdate()
+    {
+        if (respawnRequested)
+        {
+            respawnRequested = false;
+            GameManager.Respawn();
+        }
+    }
+
 
     private static float GetManhattanDistance(Vector2 k1, Vector2 k2)
     {

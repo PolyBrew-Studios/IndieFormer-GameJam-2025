@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -232,12 +233,10 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
             Destroy(_prevRagdoll);
             _prevRagdoll = null;
         }
-
-
-       
+        
         _vehicleController.GetRigidBody().linearVelocity = Vector3.zero;
         _vehicleController.GetRigidBody().angularVelocity = Vector3.zero;
-
+        
         _currentSteeringAngle = maxSteeringAngle;
         _currentSpringStiffness = maxSpringStiffness;
         _currentDamperStiffness = maxDamperStiffness;
@@ -248,7 +247,39 @@ public class PlayerForceFieldAdjuster : MonoBehaviour
         
         _timeSinceLastSteerInput = -2f; // grace period
         _lastSteerDir = 0;
-        _vehicleController.enabled = true;
+        
+        // Wait one frame before re-enabling the controller
+        StartCoroutine(EnableControllerNextFrame());
+
     }
+    private IEnumerator EnableControllerNextFrame()
+    {
+        yield return null; // waits for one frame
+        if (_vehicleController != null)
+        {
+            isFalling = false;
+            isFallenOff = false;
+            
+            // disable again to prevent physics from fighting with the scripted motion
+            _vehicleController.GetRigidBody().linearVelocity = Vector3.zero;
+            _vehicleController.GetRigidBody().angularVelocity = Vector3.zero;
+            
+            _currentSteeringAngle = maxSteeringAngle;
+            _currentSpringStiffness = maxSpringStiffness;
+            _currentDamperStiffness = maxDamperStiffness;
+
+            _vehicleController._currentLocalVelocity = Vector3.zero;
+            _vehicleController._velocityRatio = 0f;
+            _vehicleController._currentSteeringAngle = 0f;
+        
+            _timeSinceLastSteerInput = -2f; // grace period
+            _lastSteerDir = 0;
+            
+            
+            
+            _vehicleController.enabled = true;
+        }
+    }
+
 
 }
